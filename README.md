@@ -16,28 +16,42 @@ red like a wildfire.
 - Cold → hot colour palette mapped to the sensor value.
 - Efficient: the chart only repaints when a new sample arrives (~once per
   second), and it pauses while the widget is hidden.
-- Optional current-value readout and a glow effect.
+- Optional current-value readout.
 
 ## Installation
 
-### Manual
-
-Copy (or symlink) this folder into your local sensor-faces directory as
-`Wildfire`:
+First clone the repository:
 
 ```bash
-ln -s "$PWD" ~/.local/share/ksysguard/sensorfaces/Wildfire
+git clone https://github.com/xr09/Wildfire.git
+cd Wildfire
 ```
 
-### kpackagetool
+Then install it with **either** method below.
+
+### kpackagetool (recommended)
 
 ```bash
 kpackagetool6 --type KSysguard/SensorFace --install .
-# to update after changes:
+# to update after pulling changes:
 kpackagetool6 --type KSysguard/SensorFace --upgrade .
 ```
 
-Then restart plasmashell (`kquitapp6 plasmashell; kstart plasmashell`).
+### Manual (symlink)
+
+Symlink the checkout into your local sensor-faces directory as `Wildfire`
+(handy for development — `git pull` then reload):
+
+```bash
+mkdir -p ~/.local/share/ksysguard/sensorfaces
+ln -s "$PWD" ~/.local/share/ksysguard/sensorfaces/Wildfire
+```
+
+After either method, restart plasmashell so it picks up the face:
+
+```bash
+kquitapp6 plasmashell; kstart plasmashell
+```
 
 ## Usage
 

@@ -9,7 +9,6 @@
 
 import QtQuick
 import QtQuick.Controls as Controls
-import Qt5Compat.GraphicalEffects
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.ksysguard.sensors as Sensors
@@ -165,14 +164,6 @@ Item {
         font.pixelSize: Math.max(8, Math.round(
                             Math.min(chart.width, chart.height) * 0.22))
         text: chart.integerReadout
-    }
-
-    FastBlur {
-        z: -1
-        visible: controller.faceConfiguration.glow
-        anchors.fill: canvas
-        source: canvas
-        radius: Kirigami.Units.gridUnit / 2
     }
 
     Sensors.Sensor {

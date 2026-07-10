@@ -14,7 +14,6 @@ Kirigami.FormLayout {
 
     property alias cfg_showLegend: showSensorsLegendCheckbox.checked
     property alias cfg_showlabel: showSensorslabelCheckbox.checked
-    property alias cfg_glow: glowCheckbox.checked
     property alias cfg_blockSize: blockSizeCombo.currentIndex
 
     Controls.Label {
@@ -30,11 +29,6 @@ Kirigami.FormLayout {
     Controls.CheckBox {
         id: showSensorsLegendCheckbox
         text: i18n("Show Sensors Legend")
-    }
-
-    Controls.CheckBox {
-        id: glowCheckbox
-        text: i18n("Glow")
     }
 
     Controls.ComboBox {
