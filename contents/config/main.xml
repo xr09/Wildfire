@@ -12,6 +12,9 @@
     <entry name="showlabel" type="Bool">
       <default>true</default>
     </entry>
+    <entry name="blockSize" type="Int">
+      <default>1</default>
+    </entry>
     <group name="Gauge">
       <entry name="glow" type="Bool">
         <default>false</default>

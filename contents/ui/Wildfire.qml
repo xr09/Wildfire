@@ -59,8 +59,14 @@ Item {
         return Math.pow(t, activityGamma)
     }
 
-    // Size of one pixel-art block; a 1px gap turns the bars into a crisp grid.
-    readonly property int cell: Math.max(3, Math.round(Kirigami.Units.gridUnit / 3))
+    // Pixel-art block size, user-selectable via the "Block size" setting
+    // (0 = Small, 1 = Medium, 2 = Large). Bigger blocks read chunkier but leave
+    // fewer rows/columns; the scale stays tied to gridUnit for DPI/font. A 1px
+    // gap turns the bars into a crisp grid.
+    readonly property var blockScales: [0.33, 0.45, 0.60]
+    readonly property real blockScale:
+        blockScales[controller.faceConfiguration.blockSize] || blockScales[1]
+    readonly property int cell: Math.max(3, Math.round(Kirigami.Units.gridUnit * blockScale))
     readonly property int gap: cell >= 5 ? 1 : 0
 
     // Faint "unlit" cell colour so the pixel matrix stays visible on any theme.
@@ -79,9 +85,12 @@ Item {
         onWidthChanged: requestPaint()
         onHeightChanged: requestPaint()
         onGridColorChanged: requestPaint()
+        onCellChanged: requestPaint()
 
-        // gridColor lives on chart, mirror it so the handler above resolves.
+        // These live on chart; mirror them so the handlers above resolve and a
+        // config change (e.g. block size) repaints without waiting for a tick.
         property color gridColor: chart.gridColor
+        property int cell: chart.cell
 
         onPaint: {
             var ctx = getContext("2d")
