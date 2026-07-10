@@ -1,0 +1,18 @@
+{
+    "KPackageStructure": "KSysguard/SensorFace",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "xr09@users.noreply.github.com",
+                "Name": "xr09"
+            }
+        ],
+        "Icon": "systemsettings.svg",
+        "Id": "Wildfire",
+        "License": "LGPL-2.1-or-later",
+        "Name": "Wildfire",
+        "Version": "1.0"
+    },
+    "X-KDE-ParentApp": "org.kde.plasmashell",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}
