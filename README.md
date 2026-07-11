@@ -5,10 +5,14 @@ scrolling, pixel-art bar chart. Each sample becomes a vertical bar of stacked
 square "pixels"; the bar's height is the current value and its colour runs from
 cold (idle) to hot (busy). New samples enter on the right and scroll left.
 
+![Wildfire](wildfire.png)
+
 Great for CPU usage — low load stays cold and blue-green, spikes burn amber and
 red like a wildfire.
 
-![Wildfire](wildfire.png)
+It looks amazing on the status bar as well.
+
+![CPU usage visualization](assets/cpu.gif)
 
 ## Features
 
