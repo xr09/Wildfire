@@ -1,0 +1,28 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "*"
+
+permissions:
+  contents: write
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build plasmoid package
+        run: |
+          PACKAGE="wildfire-${GITHUB_REF_NAME}.plasmoid"
+          echo "PACKAGE=${PACKAGE}" >> "$GITHUB_ENV"
+          zip -r "${PACKAGE}" metadata.json contents/
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ env.PACKAGE }}
+          generate_release_notes: true
